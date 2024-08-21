@@ -1,0 +1,249 @@
+eais:
+  - eai: 1234567  # Example EAI number, replace with actual value
+    modules:
+      - module_name: service-one
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-one/resource?parameter=value
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer1.example.com
+            dc: LB
+      - module_name: service-two
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-two/resource?parameter=value
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer2.example.com
+            dc: LB
+      - module_name: service-three
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: POST
+          path: /api/service-three/resource
+          expected_response_code: 200
+          okta_required: true
+          body: |
+            {
+              "field1": "value1",
+              "field2": [
+                {
+                  "subField1": "subValue1",
+                  "subField2": "subValue2"
+                }
+              ]
+            }
+        load_balancers:
+          - name: loadbalancer3.example.com
+            dc: LB
+      - module_name: service-four
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: POST
+          path: /api/service-four/resource
+          expected_response_code: 200
+          okta_required: true
+          body: |
+            {
+              "attribute1": "example",
+              "attribute2": "exampleCountry",
+              "contact": [
+                {
+                  "contactType": "EMAIL",
+                  "contactValue": "user@example.com"
+                }
+              ]
+            }
+        load_balancers:
+          - name: loadbalancer4.example.com
+            dc: LB
+      - module_name: service-five
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: POST
+          path: /api/service-five/statistics
+          expected_response_code: 200
+          okta_required: true
+          body: |
+            {
+              "type": "POST",
+              "startDate": "2024-06-07 00:00:00",
+              "endDate": "2024-06-08 00:00:00",
+              "region": "exampleRegion"
+            }
+        load_balancers:
+          - name: loadbalancer5.example.com
+            dc: LB
+      - module_name: service-six
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-six/resource?trackingId=exampleTrackingId
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer6.example.com
+            dc: LB
+      - module_name: service-seven
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-seven/configuration
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer7.example.com
+            dc: LB
+      - module_name: service-eight
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-eight/logs?trackingId=exampleTrackingId
+          expected_response_code: 404
+        load_balancers:
+          - name: loadbalancer8.example.com
+            dc: LB
+      - module_name: service-nine
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-nine/uploads?userId=exampleUserId&days=30
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer9.example.com
+            dc: LB
+      - module_name: service-ten
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-ten/notification?trackingId=exampleTrackingId
+          expected_response_code: 404
+        load_balancers:
+          - name: loadbalancer10.example.com
+            dc: LB
+      - module_name: service-eleven
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-eleven/summary?startDate=2024-01-23&endDate=2024-01-24
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer11.example.com
+            dc: LB
+      - module_name: service-twelve
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-twelve/contact?startDate=2024-01-23&endDate=2024-01-24
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer12.example.com
+            dc: LB
+      - module_name: service-thirteen
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-thirteen/summary?startDate=2024-01-30&endDate=2024-01-31
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer13.example.com
+            dc: LB
+      - module_name: service-fourteen
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-fourteen/businessrules?opco=EXAMPLE&region=EXAMPLE
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer14.example.com
+            dc: LB
+      - module_name: service-fifteen
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-fifteen/configurations?opco=ANY&region=ANY
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer15.example.com
+            dc: LB
+      - module_name: service-sixteen
+        active: true
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: POST
+          path: /api/service-sixteen/crudconfig/READ/CONFIGURATION/READ_ALL
+          body: '{}'
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer16.example.com
+            dc: LB
+      - module_name: service-seventeen
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-seventeen/document-upload/ctry-config?country=EXAMPLE
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer17.example.com
+            dc: LB
+      - module_name: service-eighteen
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-eighteen/document-upload/test
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer18.example.com
+            dc: LB
+      - module_name: service-nineteen
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-nineteen/notification/test
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer19.example.com
+            dc: LB
+      - module_name: service-twenty
+        defaults:
+          port: 443
+          protocol: HTTPS
+          method: GET
+          path: /api/service-twenty/case/search?trackingId=exampleTrackingId&date=20230815&caseType=EXAMPLE
+          expected_response_code: 200
+        load_balancers:
+          - name: loadbalancer20.example.com
+            dc: LB
