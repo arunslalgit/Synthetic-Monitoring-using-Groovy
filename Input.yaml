@@ -1,5 +1,5 @@
-eais:
-  - eai: 1234567  # Example EAI number, replace with actual value
+apps:
+  - app: 1234567  # Example app number, replace with actual value
     modules:
       - module_name: service-one
         active: true
